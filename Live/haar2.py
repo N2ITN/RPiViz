@@ -1,7 +1,4 @@
-
-# coding: utf-8
-
-# In[4]:
+''' not used in project '''
 
 import cv2
 import os
