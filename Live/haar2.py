@@ -1,11 +1,9 @@
-''' not used in project '''
+""" Testing object for experimenting with OpenCV face detecton parameters. 
+Not going to comment this :) """
 
 import cv2
 import os
 import numpy as np
-
-
-# In[3]:
 
 
 class Cascade():
