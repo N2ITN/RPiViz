@@ -12,3 +12,8 @@ pip install dlib
 ```
 unzip into RPiViz folder:
 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+
+
+## TODO:
+* 2to3 
+* tabs_to_spaces.py
