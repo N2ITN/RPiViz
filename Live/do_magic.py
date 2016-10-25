@@ -1,3 +1,4 @@
+""" Extracts eye closure ratio data from crop2face output image"""
 import cv2
 import dlib
 import glob
@@ -8,16 +9,17 @@ picture_dir = ''
 from identify import crop2face
 
 def distance_2D (x1,y1,x2,y2):
-		a = numpy.array((x1,y1))
-		b = numpy.array((x2,y2))
-		dist = numpy.linalg.norm(a-b)
-		return dist
+	""" Return euclidian distance between 2 coordinate pairs, assistant function to array_maker """
+	a = numpy.array((x1,y1))
+	b = numpy.array((x2,y2))
+	dist = numpy.linalg.norm(a-b)
+	return dist
 
 def analyze(shape,frame):
-	''' Calculate eye closure from landmarks'''
+	""" Calculate eye closure from landmarks """
 	
         def array_maker(n1,n2):
-		'''Extract point in array from DLib shape'''
+		""" Extract point pair from DLib shape to array, calculate euclidian distance  """
         	return distance_2D(shape.part(n1).x, shape.part(n1).y, shape.part(n2).x,shape.part(n2).y)
 	
 
@@ -36,8 +38,9 @@ def analyze(shape,frame):
 	ratio_R.round(1)
 	total_ratio = (ratio_R + ratio_L)/2
 	
-	
-	'''Draw landmarks on image and save, for demonstration / debug use only '''
+
+	# Draw landmarks on image and save, for demonstration / debug use only '''
+	# TODO: Functionalize this
 	for i in range(1,68):
 		cv2.circle(frame, (shape.part(i).x, shape.part(i).y), 1, (255,255,255), thickness=1) 
 	y1 = shape.part(8).y
@@ -48,7 +51,7 @@ def analyze(shape,frame):
 	cv2.imwrite('snap_draw.jpg', crop)
 	
 	
-	'''Return ratio of eye closure'''
+	# Return final ratio
 	return total_ratio.round(4)
 
         
