@@ -28,8 +28,8 @@ Likely not 100% functional.
 Testing in progress!
 
 * ``` sudo raspi config ```
-* set to command line boot
-* set gpu memory to 64 MB
+  * command line boot
+  *  gpu memory to 64 MB
 * accept reboot prompt
 * ``` pip install RPiViz ```
 
