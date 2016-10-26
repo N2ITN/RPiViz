@@ -11,7 +11,7 @@ Tested on Raspian Jesse Pixel
 dlib is very slow to install, and pushes the limits of RPi memory!
 dlib install will only work in headleess mode with GPU memory set to 64  (use ``` raspi config ``` )
 
-#### Run locally in RPiViz folder:
+### Run locally in RPiViz folder:
 ```bash
 sudo apt-get update
 sudo apt-get install libopencv-dev python-opencv
@@ -22,7 +22,7 @@ curl -o ~/shape_predictor_68_face_landmarks.dat http://dlib.net/files/shape_pred
 ```
 
 
-#### Pip
+### Pip
 pip package to automate installation of all dependencies currently in development.
 Likely not 100% functional. 
 Testing in progress!
@@ -37,5 +37,5 @@ Testing in progress!
 ## Run
 Ask me.
 
-#### License 
+## License 
 Apache License 2.0.
