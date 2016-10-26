@@ -12,7 +12,7 @@ import dlib
 
 # Load in main script to reduce disk IO
 predictor = dlib.shape_predictor(
-    "/home/pi/Desktop/shape_predictor_68_face_landmarks.dat"
+    "/home/pi/shape_predictor_68_face_landmarks.dat"
 )  #Landmark identifier. Set the filename to whatever you named the downloaded file
 
 # Camera rotation and resolution options
