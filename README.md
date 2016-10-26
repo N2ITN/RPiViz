@@ -5,6 +5,10 @@
 * Seattle Interactive 2016 T-Mobile Hackathon finalist.
 * Work in progress - massive feature additions on the way.
 
+## Example of drowsiness detection
+![Alt text](/image_examples/alert.jpg?raw=true "So tired..")
+
+
 ## Install notes
 * Tested on Raspian Jesse Pixel
 * dlib is very slow to install, and pushes the limits of RPi memory!
@@ -37,8 +41,7 @@ pip package to be completed soon
 
 ``` python executor.py ```
 
-## Example of drowsiness detection
-![Alt text](/image_examples/alert.jpg?raw=true "So tired..")
+
 
 
 ## License 
