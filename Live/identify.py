@@ -6,6 +6,7 @@ import numpy as np
 
 
 # TODO: split into 2 functions, get_face, extract_data
+#@profile
 def crop2face(pic, predictor):
     """ Greyscale img, boost contrast, detect faces, extract coords from first face found, convert to dlib rectangle"""
 
@@ -30,8 +31,8 @@ def crop2face(pic, predictor):
         detections = dlib.rectangle(long(x), long(y), long(x + w), long(y + h))
 
         # Save cropped face img
-        #color_normal = img[y1:y2, x1:x2]
-        #cv2.imwrite('snapcrop.jpg',color_normal)
+        color_normal = img[y1:y2, x1:x2]
+        cv2.imwrite('snapcrop.jpg',color_normal)
 
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         shape = predictor(clahe_image, detections)
