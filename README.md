@@ -30,7 +30,7 @@ Testing in progress!
 * ``` sudo raspi config ```
   * command line boot
   *  gpu memory to 64 MB
-* accept reboot prompt
+  * accept reboot prompt
 * ``` pip install RPiViz ```
 
 
