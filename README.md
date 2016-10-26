@@ -6,7 +6,7 @@ Seattle Interactive 2016 T-Mobile Hackathon finalist
 Work in progress - massive feature additions on the way.
 
 
-## install notes
+## Install notes
 Tested on Raspian Jesse Pixel
 dlib is very slow to install, and pushes the limits of RPi memory!
 dlib install will only work in headleess mode with GPU memory set to 64  (use ``` raspi config ``` )
@@ -33,6 +33,9 @@ Testing in progress!
   * accept reboot prompt
 * ``` pip install RPiViz ```
 
+
+## Run
+Ask me.
 
 
 Apache License 2.0.
