@@ -5,7 +5,7 @@
 * Seattle Interactive 2016 T-Mobile Hackathon finalist.
 * Work in progress - massive feature additions on the way.
 
-## Example of drowsiness detection
+## Real time drowsiness detection
 ![Alt text](/image_examples/alert.jpg?raw=true "So tired..")
 
 
