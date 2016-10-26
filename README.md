@@ -31,7 +31,7 @@ Testing in progress!
 * set to command line boot
 * set gpu memory to 64 MB
 * accept reboot prompt
-* '''pip install RPiViz''
+* ``` pip install RPiViz ```
 
 
 
