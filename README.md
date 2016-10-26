@@ -34,7 +34,12 @@ pip package to be completed soon
 
 
 ## Run
-Ask me.
+
+``` python executor.py ```
+
+## Example of drowsiness detection
+![Alt text](/image_examples/alert.jpg?raw=true "So tired..")
+
 
 ## License 
 Apache License 2.0.
