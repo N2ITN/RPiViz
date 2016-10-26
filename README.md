@@ -8,7 +8,7 @@
 ## Install notes
 * Tested on Raspian Jesse Pixel
 * dlib is very slow to install, and pushes the limits of RPi memory!
-* dlib install will only work in headleess mode with GPU memory set to 64  (use ``` raspi config ``` )
+* dlib install will only work in headless mode with GPU memory set to 64  (use ``` raspi config ``` )
 
 ### Run locally in RPiViz folder:
 ```bash
