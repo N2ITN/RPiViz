@@ -1,0 +1,6 @@
+numpy==1.11.2
+cv2==1.0
+picamera==1.12
+requests==2.4.3
+
+
