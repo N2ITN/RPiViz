@@ -4,7 +4,8 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 
 # use apt-get if you need to install dependencies,
 # for instance if you need ALSA sound utils, just uncomment the lines below.
-RUN apt-get update && sudo apt-get upgrade 
+RUN apt-get update && sudo apt-get upgrade /
+&& rm -rf /var/lib/apt/lists/*
 
 COPY ./get_reqs.sh /
 
@@ -32,4 +33,4 @@ COPY . ./
 ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
-CMD ["python","src/executor.py"]
+CMD ["python","raspivis/executor.py"]

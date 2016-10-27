@@ -10,6 +10,8 @@ import requests
 nv = PiCamera()
 import dlib
 import os
+import sh
+sh.Command('vncserver')
 p = __file__
 # Load in main script to reduce disk IO
 p = os.path.dirname(os.path.realpath(__file__))
