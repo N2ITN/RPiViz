@@ -4,8 +4,8 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 
 # use apt-get if you need to install dependencies,
 # for instance if you need ALSA sound utils, just uncomment the lines below.
-RUN apt-get update && sudo apt-get upgrade /
-&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update && sudo apt-get upgrade
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY ./get_reqs.sh /
 
