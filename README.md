@@ -14,32 +14,33 @@
 * dlib is very slow to install, and pushes the limits of RPi memory!
 * dlib install will only work in headless mode with GPU memory set to 64  (use ``` raspi config ``` )
 
-### Run locally in RPiViz folder:
+### Bash:
 ```bash
 sudo apt-get update
+sudo apt-get install python-pip python-dev build-essential 
+sudo pip install --upgrade pip 
 sudo apt-get install libopencv-dev python-opencv
+git clone https://github.com/N2ITN/RPiViz.git
+cd RPiViz/RPiViz
 sudo cat requirements.txt | xargs pip install
 sudo apt-get install libboost-python-dev
-sudo pip install dlib==19.1.0
-curl -o ~/shape_predictor_68_face_landmarks.dat http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 | bzip2 -d shape_predictor_68_face_landmarks.dat.bz2
-```
-
-### Pip
-pip package to automate installation of all dependencies is in development.
-Use test version at your own risk  - likely not 100% functional. 
-
-pip package to be completed soon
-
 * ``` sudo raspi config ```
   * command line boot
   *  gpu memory to 64 MB
   * accept reboot prompt
-* ``` pip install RPiViz ```
+sudo pip install dlib==19.1.0
+curl -o ~/shape_predictor_68_face_landmarks.dat http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 | bzip2 -d shape_predictor_68_face_landmarks.dat.bz2
 
+```
+
+
+
+### Pip
+forthcoming
 
 ## Run
 
-``` python executor.py ```
+``` python -m RPiViz```
 
 
 
