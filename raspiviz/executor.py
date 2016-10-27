@@ -43,7 +43,7 @@ print("starting")
 def camera_loop(loops, nap):
     """ Orchestrator of all """
     buffer = []
-    for loop in range(0, loops):
+    while True:
         snap = 'snap.jpg'
         start = time()
         nv.capture(snap)
@@ -119,8 +119,9 @@ def camera_loop(loops, nap):
     print()
 
 
-def start(n=50):
-    camera_loop(n, 0)
+def start():
+
+    camera_loop()
 
 
 start()
