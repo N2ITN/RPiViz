@@ -3,18 +3,13 @@ import os
 from subprocess import call
 
 
-    
 def main():
-    print ('installing system dependencies')
-    path = __file__.replace('deps.py','run.sh')
-    print( call('chmod', '+x', path))
+    print('installing system dependencies')
+    path = __file__.replace('deps.py', 'run.sh')
+    print(call('chmod', '+x', path))
     print(call('run.sh'))
-    
+
     # with open(path,'r') as run:
     #     for line in run:
     #         print 'executing',line
     #         print(call(line.split()))
-            
-
-
-

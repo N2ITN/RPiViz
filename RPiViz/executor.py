@@ -13,7 +13,7 @@ import os
 p = __file__
 # Load in main script to reduce disk IO
 p = os.path.dirname(os.path.realpath(__file__))
-target = os.path.join(p,"shape_predictor_68_face_landmarks.dat")
+target = os.path.join(p, "shape_predictor_68_face_landmarks.dat")
 print target
 predictor = dlib.shape_predictor(target)
 
@@ -36,6 +36,8 @@ except Exception as e:
     print e
 '''
 print("starting")
+
+
 #@profile
 def camera_loop(loops, nap):
     """ Orchestrator of all """
@@ -92,7 +94,7 @@ def camera_loop(loops, nap):
                 print(e)
             buffer.pop(0)
             print(alertness)
-    
+
     # TODO: Functionalize as "preview_window"
         text = ' '.join(['ratio', str(analysis)])
         text2 = ' '.join(['alertness:', alertness])  #, str(vector)])
@@ -101,20 +103,22 @@ def camera_loop(loops, nap):
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img, text2, (10, 30), font, .5, defcon, 1, cv2.CV_AA)
         if a:
-           cv2.putText(img, 'sending ALERT', (10, 50), font, .5, (0, 0, 255),
+            cv2.putText(img, 'sending ALERT', (10, 50), font, .5, (0, 0, 255),
                         1, cv2.CV_AA)
         cv2.namedWindow('z', cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty('z', cv2.WND_PROP_FULLSCREEN,
                               cv2.cv.CV_WINDOW_FULLSCREEN)
         cv2.imshow('z', img)
-        cv2.imwrite('alert.jpg',img)
+        cv2.imwrite('alert.jpg', img)
         cv2.waitKey(1000)
-    
+
     print time() - start, 'total seconds'
     print
     print
 
+
 def start(n=50):
     camera_loop(n, 0)
+
 
 start()

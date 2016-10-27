@@ -18,10 +18,11 @@ def distance_2D(x1, y1, x2, y2):
     dist = numpy.linalg.norm(a - b)
     return dist
 
+
 #@profile
 def analyze(shape, frame):
     """ Calculate eye closure from landmarks """
-    
+
     def array_maker(n1, n2):
         """ Extract point pair from DLib shape to array, calculate euclidian distance  """
         return distance_2D(
