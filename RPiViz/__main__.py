@@ -1,4 +1,3 @@
-import RPiViz as vz
 import sys
 
 import deps
