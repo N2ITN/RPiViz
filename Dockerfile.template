@@ -33,4 +33,4 @@ COPY . ./
 ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
-CMD ["python","raspivis/executor.py"]
+CMD python raspiviz/executor.py 
