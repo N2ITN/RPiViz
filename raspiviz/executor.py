@@ -2,8 +2,8 @@
 
 from picamera import PiCamera
 from time import sleep, time
-import do_magic
-from identify import crop2face
+from . import do_magic
+from .identify import crop2face
 import numpy as np
 import cv2
 import requests
@@ -13,18 +13,19 @@ import os
 p = __file__
 # Load in main script to reduce disk IO
 p = os.path.dirname(os.path.realpath(__file__))
+
 target = os.path.join(p, "shape_predictor_68_face_landmarks.dat")
-print target
+print(target)
 predictor = dlib.shape_predictor(target)
 
 #Landmark identifier. Set the filename to whatever you named the downloaded file
 
 # Camera rotation and resolution options
 #nv.rotation = 180
-#nv.resolution = (480, 360)
+nv.resolution = (480, 360)
 #nv.resolution = (960, 540)
 #nv.resolution = (1280, 720)
-nv.resolution = (1920, 1080)
+#nv.resolution = (1920, 1080)
 #nv.resolution = (2592,1944)
 
 # TODO: Remove code for local network alerts
@@ -54,7 +55,7 @@ def camera_loop(loops, nap):
         except TypeError:
             continue
         analysis = do_magic.analyze(shape, frame)
-        print(start - time(), "finished analysis")
+        print((start - time(), "finished analysis"))
         if not analysis:
             print("no face detected")
             continue
@@ -105,6 +106,7 @@ def camera_loop(loops, nap):
         if a:
             cv2.putText(img, 'sending ALERT', (10, 50), font, .5, (0, 0, 255),
                         1, cv2.CV_AA)
+        cv2.startWindowThread()
         cv2.namedWindow('z', cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty('z', cv2.WND_PROP_FULLSCREEN,
                               cv2.cv.CV_WINDOW_FULLSCREEN)
@@ -112,9 +114,9 @@ def camera_loop(loops, nap):
         cv2.imwrite('alert.jpg', img)
         cv2.waitKey(1000)
 
-    print time() - start, 'total seconds'
-    print
-    print
+    print(time() - start, 'total seconds')
+    print()
+    print()
 
 
 def start(n=50):
