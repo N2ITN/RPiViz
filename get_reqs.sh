@@ -1,4 +1,4 @@
-#usr/bin/bash
+#!/bin/bash
 echo starting installation
 echo installing opencv
 sudo apt-get install libopencv-dev python-opencv
