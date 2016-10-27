@@ -15,7 +15,7 @@ def crop2face(pic, predictor):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     clahe_image = clahe.apply(gray)
-    #equ = cv2.equalizeHist(gray) <--- more drastic contrast boosting, doesn't work evenly across lighting conditions
+    equ = cv2.equalizeHist(gray) #<--- more drastic contrast boosting, doesn't work evenly across lighting conditions
     faceprime = face_cascade.detectMultiScale(clahe_image, 1.3, 5)
 
     # Convert face coords to rectangle corner points, grow rectangle to capture full face
@@ -36,4 +36,4 @@ def crop2face(pic, predictor):
 
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         shape = predictor(clahe_image, detections)
-        return shape, img
+        return shape, equ

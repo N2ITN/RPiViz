@@ -2,26 +2,30 @@
 
 from picamera import PiCamera
 from time import sleep, time
-from . import do_magic
-from .identify import crop2face
+import do_magic
+from identify import crop2face
 import numpy as np
 import cv2
 import requests
 nv = PiCamera()
 import dlib
-
+import os
+p = __file__
 # Load in main script to reduce disk IO
-predictor = dlib.shape_predictor(
-    "/home/pi/shape_predictor_68_face_landmarks.dat"
-)  #Landmark identifier. Set the filename to whatever you named the downloaded file
+p = os.path.dirname(os.path.realpath(__file__))
+target = os.path.join(p,"shape_predictor_68_face_landmarks.dat")
+print target
+predictor = dlib.shape_predictor(target)
+
+#Landmark identifier. Set the filename to whatever you named the downloaded file
 
 # Camera rotation and resolution options
 #nv.rotation = 180
 #nv.resolution = (480, 360)
 #nv.resolution = (960, 540)
 #nv.resolution = (1280, 720)
-#nv.resolution = (1920, 1080)
-nv.resolution = (2592,1944)
+nv.resolution = (1920, 1080)
+#nv.resolution = (2592,1944)
 
 # TODO: Remove code for local network alerts
 '''
@@ -37,10 +41,10 @@ def camera_loop(loops, nap):
     """ Orchestrator of all """
     buffer = []
     for loop in range(0, loops):
-        snap = '/home/pi/Desktop/snap.jpg'
+        snap = 'snap.jpg'
         start = time()
         nv.capture(snap)
-        cal = .370
+        cal = .320
 
         # TODO: Function here
         try:
@@ -106,9 +110,11 @@ def camera_loop(loops, nap):
         cv2.imwrite('alert.jpg',img)
         cv2.waitKey(1000)
     
-    print(time() - start, 'total seconds')
-    print()
-    print()
+    print time() - start, 'total seconds'
+    print
+    print
 
+def start(n=50):
+    camera_loop(n, 0)
 
-camera_loop(10, 0)
+start()
