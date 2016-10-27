@@ -6,7 +6,7 @@ import os
 import numpy
 from time import time
 picture_dir = ''
-from .identify import crop2face
+from identify import crop2face
 
 #from memory_profiler import profile
 

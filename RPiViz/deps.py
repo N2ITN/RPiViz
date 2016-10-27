@@ -2,9 +2,10 @@
 import os
 from subprocess import call
 
-print ('installing system dependencies')
+
     
 def main():
+    print ('installing system dependencies')
     path = __file__.replace('deps.py','run.sh')
     print( call('chmod', '+x', path))
     print(call('run.sh'))
