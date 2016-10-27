@@ -11,7 +11,7 @@ COPY ./get_reqs.sh /
 
 ADD ./get_reqs.sh /get_reqs.sh
 RUN chmod +x /*.sh
-EXEC ["./*sh"]
+CMD "./*sh"
 
 #    alsa-utils libasound2-dev && \
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
