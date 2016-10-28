@@ -11,15 +11,17 @@ FROM resin/raspberrypi3-python
 RUN pwd
 
 
-RUN sudo apt-get update && sudo apt-get upgrade
+RUN sudo apt-get update 
+#&& sudo apt-get upgrade
 
 
 
 # pip install python deps from requirements.txt on the resin.io build server
-RUN sudo pip install picamera requests sh
+RUN sudo pip install picamera requests sh numpy==1.11.2
 
 
-RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake dlib==19.1.0
+RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
+RUN sudo pip install dlib==19.1.0
 
 
 WORKDIR /usr/src/app
