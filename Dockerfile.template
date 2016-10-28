@@ -23,10 +23,11 @@ RUN sudo pip install picamera requests sh
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
 RUN sudo pip install dlib==19.1.0
 
+RUN sudo apt-get install apt-utils
 
 RUN sudo apt-get install -y realvnc-vnc-server
 #RUN sudo apt-get realvnc
-RUN vncserver :1 -geometry 1920x1080 -depth 24
+
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
@@ -41,6 +42,7 @@ COPY . ./
 ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
+RUN sudo systemctl start vncserver-x11-serviced.service
 CMD python /usr/src/app/raspiviz/executor.py 
 EXPOSE 5901
 EXPOSE 22
