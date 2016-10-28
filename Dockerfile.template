@@ -9,7 +9,9 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 WORKDIR /usr/src/app
 
 COPY ./get_reqs.sh /
+COPY ./requirements.txt/
 
+ADD ./requirements.txt /requirements.txt
 ADD ./get_reqs.sh /get_reqs.sh
 RUN pwd
 RUN chmod +x /get_reqs.sh
