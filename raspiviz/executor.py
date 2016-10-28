@@ -2,8 +2,8 @@
 
 from picamera import PiCamera
 from time import sleep, time
-from . import do_magic
-from .identify import crop2face
+import do_magic
+from identify import crop2face
 import numpy as np
 import cv2
 import requests
