@@ -8,8 +8,6 @@ FROM resin/raspberrypi3-python
 
 # Set our working directory
 
-
-
 RUN pwd
 
 
@@ -18,7 +16,7 @@ RUN sudo apt-get update && sudo apt-get upgrade
 
 
 # pip install python deps from requirements.txt on the resin.io build server
-RUN sudo pip install -r /usr/src/app/requirements.txt
+RUN sudo pip install -r ./requirements.txt
 
 
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  install dlib==19.1.0
