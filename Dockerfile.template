@@ -30,11 +30,15 @@ RUN sudo apt-get install -y realvnc-vnc-server
 
 RUN systemctl enable vncserver-virtuald.service
 
+
+
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
 COPY ./requirements.txt /requirements.txt
 
-RUN curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 | bzip2 -d shape_predictor_68_face_landmarks.dat.bz2
+RUN curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
+RUN bzip -d shape_predictor_68_face_landmarks.dat.bz2
+RUN cp shape_predictor_68_face_landmarks raspiviz
 
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
