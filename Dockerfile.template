@@ -31,7 +31,7 @@ RUN sudo apt-get install -y realvnc-vnc-server
 RUN systemctl enable vncserver-virtuald.service
 
 RUN curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
-RUN sudo apt-get install bzip
+
 RUN bzip -d shape_predictor_68_face_landmarks.dat.bz2
 RUN cp shape_predictor_68_face_landmarks.dat raspiviz
 
