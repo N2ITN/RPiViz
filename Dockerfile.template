@@ -7,11 +7,12 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 
 # Set our working directory
 WORKDIR /usr/src/app
+RUN ln -snf /bin/bash /bin/sh
 
-
-
-
-
+RUN pwd
+RUN chmod +x /get_reqs.sh
+RUN sudo bash /get_reqs.sh
+RUN rm -rf /var/lib/apt/lists/*
 #    alsa-utils libasound2-dev && \
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -31,6 +32,5 @@ COPY . ./
 ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
-RUN chmod +x get_reqs.sh
-CMD sudo bash get_reqs.sh
+CMD python /usr/src/app/raspiviz/executor.py 
 EXPOSE 5901
