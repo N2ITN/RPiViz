@@ -11,8 +11,7 @@ FROM resin/raspberrypi3-python
 RUN pwd
 
 
-RUN sudo apt-get update 
-#&& sudo apt-get upgrade
+RUN sudo apt-get update && sudo apt-get upgrade
 
 
 
