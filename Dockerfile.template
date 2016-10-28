@@ -14,18 +14,21 @@ RUN pwd
 
 
 RUN sudo apt-get update && sudo apt-get upgrade && \
-sudo cat requirements.txt | xargs pip install && \
-sudo apt-get install libopencv-dev python-opencv libboost-python-dev  install dlib==19.1.0
+
+# Copy requirements.txt first for better cache on later pushes
+COPY ./requirements.txt /requirements.txt
+
+# pip install python deps from requirements.txt on the resin.io build server
+RUN pip install -r /requirements.txt
+
+
+RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  install dlib==19.1.0
 
 
 WORKDIR /usr/src/app
 
 
-# Copy requirements.txt first for better cache on later pushes
-#COPY ./requirements.txt /requirements.txt
 
-# pip install python deps from requirements.txt on the resin.io build server
-#RUN pip install -r /requirements.txt
 
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
