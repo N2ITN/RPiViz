@@ -8,12 +8,9 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 # Set our working directory
 WORKDIR /usr/src/app
 
-COPY ./get_reqs.sh /
-COPY ./requirements.txt/
 
-ADD ./requirements.txt /requirements.txt
-ADD ./get_reqs.sh /get_reqs.sh
 RUN pwd
+RUN ls
 RUN chmod +x /get_reqs.sh
 RUN sudo bash /get_reqs.sh
 RUN rm -rf /var/lib/apt/lists/*
