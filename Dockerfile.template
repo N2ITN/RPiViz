@@ -17,7 +17,8 @@ RUN sudo apt-get update
 
 
 # pip install python deps from requirements.txt on the resin.io build server
-RUN sudo pip install picamera requests sh numpy==1.11.2
+RUN sudo pip install picamera requests sh 
+#numpy==1.11.2
 
 
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
