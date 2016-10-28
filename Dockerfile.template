@@ -26,7 +26,7 @@ RUN sudo pip install dlib==19.1.0
 
 RUN sudo apt-get install -y realvnc-vnc-server
 #RUN sudo apt-get realvnc
-#RUN realvnc :1 -geometry 1920x1080 -depth 24
+RUN realvnc :1 -geometry 1920x1080 -depth 24
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
