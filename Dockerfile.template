@@ -11,6 +11,7 @@ WORKDIR /usr/src/app
 COPY ./get_reqs.sh /
 
 ADD ./get_reqs.sh /get_reqs.sh
+RUN pwd
 RUN chmod +x *.sh
 RUN sudo ./*sh
 RUN rm -rf /var/lib/apt/lists/*
