@@ -28,12 +28,12 @@ RUN sudo apt-get install apt-utils
 RUN sudo apt-get install -y realvnc-vnc-server
 #RUN sudo apt-get realvnc
 
-RUN systemctl enable vncserver-virtuald.service
+RUN sudo systemctl enable vncserver-virtuald.service
 
-RUN curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
+RUN sudo curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
 
-RUN bzip -d shape_predictor_68_face_landmarks.dat.bz2
-RUN cp shape_predictor_68_face_landmarks.dat raspiviz
+RUN sudo bzip -d shape_predictor_68_face_landmarks.dat.bz2
+RUN sudo cp shape_predictor_68_face_landmarks.dat raspiviz
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
