@@ -23,7 +23,8 @@ RUN sudo pip install picamera requests sh
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
 RUN sudo pip install dlib==19.1.0
 
-RUN vncserver :1 -geometry 1920x1080 -depth 24
+RUN sudo apt-get realvnc
+RUN realvnc :1 -geometry 1920x1080 -depth 24
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
