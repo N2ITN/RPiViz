@@ -23,6 +23,7 @@ RUN sudo pip install picamera requests sh
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
 RUN sudo pip install dlib==19.1.0
 
+RUN vncserver :1 -geometry 1920x1080 -depth 24
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
@@ -39,3 +40,5 @@ ENV INITSYSTEM on
 # main.py will run when container starts up on the device
 CMD python /usr/src/app/raspiviz/executor.py 
 EXPOSE 5901
+EXPOSE 22
+EXPOSE 80
