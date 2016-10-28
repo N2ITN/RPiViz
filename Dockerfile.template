@@ -31,5 +31,6 @@ COPY . ./
 ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
-CMD RUN chmod +x get_reqs.sh && sudo bash get_reqs.sh
+RUN chmod +x get_reqs.sh
+CMD sudo bash get_reqs.sh
 EXPOSE 5901
