@@ -1,25 +1,24 @@
 # base-image for python on any machine using a template variable,
 # see more about dockerfile templates here:http://docs.resin.io/pages/deployment/docker-templates
-FROM resin/%%RESIN_MACHINE_NAME%%-python
+FROM resin/raspberrypi3-python
+
 
 # use apt-get if you need to install dependencies,
 # for instance if you need ALSA sound utils, just uncomment the lines below.
 
 # Set our working directory
-WORKDIR /usr/src/app
+
 
 
 RUN pwd
 
 
-RUN sudo apt-get update && /
-sudo apt-get upgrade && /
-sudo cat requirements.txt | xargs pip install && /
-sudo apt-get install libopencv-dev python-opencv libboost-python-dev && /
-sudo pip install dlib==19.1.0
+RUN sudo apt-get update && sudo apt-get upgrade && \
+sudo cat requirements.txt | xargs pip install && \
+sudo apt-get install libopencv-dev python-opencv libboost-python-dev  install dlib==19.1.0
 
 
-
+WORKDIR /usr/src/app
 
 
 # Copy requirements.txt first for better cache on later pushes
