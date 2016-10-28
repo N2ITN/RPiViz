@@ -8,12 +8,10 @@ FROM resin/%%RESIN_MACHINE_NAME%%-python
 # Set our working directory
 WORKDIR /usr/src/app
 
-COPY ./get_reqs.sh /
 
-ADD ./get_reqs.sh /get_reqs.sh
 RUN pwd
-RUN chmod +x *.sh
-RUN sudo ./*sh
+RUN chmod +x get_reqs.sh
+RUN sudo ./get_reqs.sh
 RUN rm -rf /var/lib/apt/lists/*
 #    alsa-utils libasound2-dev && \
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
