@@ -37,8 +37,7 @@ WORKDIR /usr/src/app
 COPY ./requirements.txt /requirements.txt
 
 RUN sudo curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
-RUN pwd && ls
-RUN sudo bzip  *.bz2
+RUN sudo bzip2  shape_predictor_68_face_landmarks.bz2
 RUN sudo cp shape_predictor_68_face_landmarks.dat raspiviz
 
 # This will copy all files in our root to the working  directory in the container
