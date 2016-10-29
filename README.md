@@ -24,7 +24,7 @@ Facial landmark identification, keypoint anaylsis, time weighted feedback, updat
   * robust fault tolerance - recoverable with network, power loss, system crash
   * mass deployable
   * data processing on device, 'the fog' as opposed to the cloud
-  * IoT platform for emotion recognition applications
+  * flexible IoT platform for emotion recognition applications
   * 'anti-app': an unobstrustive 'enchanted' object' that facilitates a utility or experience 
 
 ## Deployment
