@@ -36,7 +36,7 @@ def crop2face(pic, predictor):
 
         blurred = cv2.GaussianBlur(gray, (3, 3), 0)
         #tight = cv2.Canny(blurred, 225, 250)
-        wide = cv2.Canny(blurred, 10, 200)
+        wide = cv2.Canny(blurred, 10, 100)
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         shape = predictor(wide, detections)
         return shape, wide
