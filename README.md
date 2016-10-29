@@ -8,9 +8,13 @@
 ## Real time drowsiness detection
 
 IR cam capture, face detection, image cropping
+
+
 ![Alt text](/images/snapcrop.jpg?raw=true "So tired..") 
 
 Facial landmark identification, keypoint anaylsis, time weighted feedback, update frequency ~3 seconds
+
+
 ![Alt text](/images/alert.jpg?raw=true "alert!") 
 
 
