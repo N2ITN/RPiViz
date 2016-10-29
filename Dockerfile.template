@@ -29,7 +29,7 @@ RUN sudo apt-get install -y realvnc-vnc-server
 #RUN sudo apt-get realvnc
 
 RUN sudo systemctl enable vncserver-virtuald.service
-RUN -p 5900:5900 vncserver
+
 
 
 WORKDIR /usr/src/app
