@@ -54,8 +54,8 @@ ENV INITSYSTEM on
 
 
 # main.py will run when container starts up on the device
-
-CMD python /usr/src/app/raspiviz/executor.py 
 EXPOSE 5901
 EXPOSE 22
 EXPOSE 80
+CMD python /usr/src/app/raspiviz/executor.py 
+
