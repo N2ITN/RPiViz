@@ -59,4 +59,4 @@ ENV INITSYSTEM on
 
 #CMD python /usr/src/app/raspiviz/executor.py 
 
-CMD ["python", "-m", "SimpleHTTPServer"]
+CMD ["python", "-m", "SimpleHTTPServer","80"]
