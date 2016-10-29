@@ -40,15 +40,16 @@ COPY ./requirements.txt /requirements.txt
 COPY . ./
 
 
-RUN curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \
-  bzip2 -d shape_predictor_68_face_landmarks.bz2  && \
-  cp shape_predictor_68_face_landmarks.dat raspiviz
+
 
 
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
-
+RUN curl -O http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \
+  bzip2 -d *shape_predictor_68_face_landmarks.bz2  && \
+  cp shape_predictor_68_face_landmarks.dat raspiviz
+  
 # main.py will run when container starts up on the device
 
 CMD python /usr/src/app/raspiviz/executor.py 
