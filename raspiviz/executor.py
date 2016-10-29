@@ -46,12 +46,11 @@ def camera_loop(show=False):
     """ Orchestrator of all """
     buffer = []
     cal = 1
-    calibrating = True
+    calibrator = []
     while True:
         snap = 'snap.jpg'
         start = time()
-        nv.capture(snap)
-        
+        nv.capture(snap)        
 
         # TODO: Function here
         try:
@@ -66,20 +65,24 @@ def camera_loop(show=False):
         perc_asleep = round((analysis / cal) * 100, 2)
 
         # TODO: Function
-        buffer.append(int(perc_asleep))
-        print(buffer)
-        a = False
-        vector = int(np.mean(buffer))
-        print(vector)
-        defcon = (255, 255, 255)
+
         alertness = 'calibrating'
 
         # TODO: Functionalize as "alert", create option for network alert or preview window
-        if len(buffer) < 5:
+        cal_len = len(calibrator)
+        if cal_len < 5:
             print 'calibrating, show neutral awake face'
-        elif len(buffer) == 5:
-            cal = vector
+            calibrator.append(int(perc_asleep))
+        elif len(calibrator) == 5:
+            cal = int(np.mean(calibrator))
+
         else:
+            buffer.append(int(perc_asleep))
+            print(buffer)
+            a = False
+            vector = int(np.mean(buffer))
+            print(vector)
+            defcon = (255, 255, 255)
             try:
                 if int(vector) > 85:
                     defcon = (0, 255, 0)
@@ -102,7 +105,8 @@ def camera_loop(show=False):
                     a = True
             except Exception as e:
                 print(e)
-            buffer.pop(0)
+            if len(buffer) > 10:
+                buffer.pop(0)
             print(ctime())
             print(alertness)
 
