@@ -46,8 +46,7 @@ RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 # This will copy all files in our root to the working directory in the container
 COPY . ./
 
-
-RUN cp shape_predictor_68_face_landmarks.dat /raspiviz
+RUN cp shape_predictor_68_face_landmarks.dat raspiviz
 
 
 # switch on systemd init system in container
