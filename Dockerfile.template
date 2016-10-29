@@ -38,16 +38,16 @@ COPY ./requirements.txt /requirements.txt
 
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
 RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
-RUN ls
-RUN cp shape_predictor_68_face_landmarks.dat raspiviz
+
+
 
 
 #RUN sudo pip install Flask==0.10.1
-# This will copy all files in our root to the working  directory in the container
+# This will copy all files in our root to the working directory in the container
 COPY . ./
 
 
-
+RUN cp shape_predictor_68_face_landmarks.dat /raspiviz
 
 
 # switch on systemd init system in container
