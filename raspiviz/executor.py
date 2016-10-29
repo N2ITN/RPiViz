@@ -40,19 +40,13 @@ except Exception as e:
 '''
 print("starting")
 
-
+calibrating = True
 #@profile
 def camera_loop(show=False):
     """ Orchestrator of all """
-    buffer = []
-    cal = 1
-    calibrator = []
-    while True:
-        snap = 'snap.jpg'
-        start = time()
-        nv.capture(snap)        
-
-        # TODO: Function here
+        
+    def get_analysis():
+        """ call CV libraries"""
         try:
             shape, frame = crop2face(snap, predictor)
         except TypeError:
@@ -63,20 +57,53 @@ def camera_loop(show=False):
             print("no face detected")
             continue
         perc_asleep = round((analysis / cal) * 100, 2)
+        return [analysis, perc_asleep]
 
+
+    def image_out():
+        text = ' '.join(['ratio', str(analysis)])
+        text2 = ' '.join(['alertness:', alertness])  #, str(vector)])
+        cv2.destroyAllWindows()
+        img = cv2.imread("snap_draw.jpg")
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(img, text2, (10, 30), font, .5, defcon, 1, cv2.CV_AA)
+        if a:
+            cv2.putText(img, 'sending ALERT', (10, 50), font, .5, (0, 0, 255),
+                        1, cv2.CV_AA)
+            if show == True:
+                cv2.startWindowThread()
+                cv2.namedWindow('z', cv2.WND_PROP_FULLSCREEN)
+                cv2.setWindowProperty('z', cv2.WND_PROP_FULLSCREEN,
+                                        cv2.cv.CV_WINDOW_FULLSCREEN)
+                cv2.imshow('z', img)
+                cv2.waitKey(1000)
+        cv2.imwrite('alert.jpg', img)
+
+    buffer = []
+    cal = 1
+    calibrator = []
+    while True:
+        snap = 'snap.jpg'
+        start = time()
+        nv.capture(snap)
         # TODO: Function
 
         alertness = 'calibrating'
 
         # TODO: Functionalize as "alert", create option for network alert or preview window
-        cal_len = len(calibrator)
-        if cal_len < 5:
-            print 'calibrating, show neutral awake face'
-            calibrator.append(int(perc_asleep))
-        elif len(calibrator) == 5:
-            cal = int(np.mean(calibrator))
+        if calibrating:
+            cal_len = len(calibrator)
+            if cal_len < 5:
+                print 'calibrating, show neutral awake face'
+                analysis, perc_asleep = get_analysis()
+
+                calibrator.append(int(perc_asleep))
+            elif len(calibrator) == 5:
+                cal = int(np.mean(calibrator))
+                calibrating = False
 
         else:
+            analysis, perc_asleep = get_analysis()
             buffer.append(int(perc_asleep))
             print(buffer)
             a = False
@@ -109,32 +136,9 @@ def camera_loop(show=False):
                 buffer.pop(0)
             print(ctime())
             print(alertness)
-
-
-    # TODO: Functionalize as "preview_window"
-            text = ' '.join(['ratio', str(analysis)])
-            text2 = ' '.join(['alertness:', alertness])  #, str(vector)])
-            cv2.destroyAllWindows()
-            img = cv2.imread("snap_draw.jpg")
-            font = cv2.FONT_HERSHEY_SIMPLEX
-            cv2.putText(img, text2, (10, 30), font, .5, defcon, 1, cv2.CV_AA)
-            if a:
-                cv2.putText(img, 'sending ALERT', (10, 50), font, .5, (0, 0, 255),
-                            1, cv2.CV_AA)
-                if show == True:
-                    cv2.startWindowThread()
-                    cv2.namedWindow('z', cv2.WND_PROP_FULLSCREEN)
-                    cv2.setWindowProperty('z', cv2.WND_PROP_FULLSCREEN,
-                                          cv2.cv.CV_WINDOW_FULLSCREEN)
-                    cv2.imshow('z', img)
-                    cv2.waitKey(1000)
-            cv2.imwrite('alert.jpg', img)
-        
-
-
-    print()
-    print()
-
+            print()
+            image_out()
+            
 
 def start():
 
