@@ -35,8 +35,8 @@ def crop2face(pic, predictor):
         cv2.imwrite('snapcrop.jpg', color_normal)
 
         blurred = cv2.GaussianBlur(gray, (3, 3), 0)
-        tight = cv2.Canny(blurred, 225, 250)
-
+        #tight = cv2.Canny(blurred, 225, 250)
+        wide = cv2.Canny(blurred, 10, 200)
         # Detect face landmarks with dlib rectangle, dlib shape predictor
-        shape = predictor(tight, detections)
+        shape = predictor(wide, detections)
         return shape, tight

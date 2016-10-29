@@ -46,6 +46,7 @@ def camera_loop(show=False):
     """ Orchestrator of all """
     buffer = []
     cal = 1
+    calibrating = True
     while True:
         snap = 'snap.jpg'
         start = time()
@@ -76,7 +77,7 @@ def camera_loop(show=False):
         # TODO: Functionalize as "alert", create option for network alert or preview window
         if len(buffer) < 5:
             print 'calibrating, show neutral awake face'
-        elif len(buffer) == 10:
+        elif len(buffer) == 5:
             cal = vector
         else:
             try:
