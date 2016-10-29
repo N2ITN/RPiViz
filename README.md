@@ -8,19 +8,24 @@
 ## Real time drowsiness detection
 
 IR cam capture, face detection, image cropping
+
+
 ![Alt text](/images/snapcrop.jpg?raw=true "So tired..") 
 
 Facial landmark identification, keypoint anaylsis, time weighted feedback, update frequency ~3 seconds
+
+
 ![Alt text](/images/alert.jpg?raw=true "alert!") 
 
 
 ## Design principles
  
   * inexpensive
-  * robust fault tolerance - recoverable with network, power loss
+  * robust fault tolerance - recoverable with network, power loss, system crash
   * mass deployable
-  * data processing on device, the fog as opposed to the cloud
-  * 'anti-app': an unobstrustive yet enchanted object facilitating a utlitity or experience 
+  * data processing on device, 'the fog' as opposed to the cloud
+  * flexible IoT platform for emotion recognition applications
+  * 'anti-app': an unobstrustive 'enchanted' object' that facilitates a utility or experience 
 
 ## Deployment
 
