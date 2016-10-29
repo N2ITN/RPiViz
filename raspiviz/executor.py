@@ -50,12 +50,12 @@ def camera_loop(show=False):
         try:
             shape, frame = crop2face(snap, predictor)
         except TypeError:
-            continue
+            return None
         analysis = do_magic.analyze(shape, frame)
         print 
         if not analysis:
             print("no face detected")
-            continue
+            return None
         perc_asleep = round((analysis / cal) * 100, 2)
         return [analysis, perc_asleep]
 
