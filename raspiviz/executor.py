@@ -42,7 +42,7 @@ print("starting")
 
 
 #@profile
-def camera_loop():
+def camera_loop(show=False):
     """ Orchestrator of all """
     buffer = []
     while True:
@@ -108,13 +108,15 @@ def camera_loop():
         if a:
             cv2.putText(img, 'sending ALERT', (10, 50), font, .5, (0, 0, 255),
                         1, cv2.CV_AA)
-        cv2.startWindowThread()
-        cv2.namedWindow('z', cv2.WND_PROP_FULLSCREEN)
-        cv2.setWindowProperty('z', cv2.WND_PROP_FULLSCREEN,
-                              cv2.cv.CV_WINDOW_FULLSCREEN)
-        cv2.imshow('z', img)
+            if show == True:
+                cv2.startWindowThread()
+                cv2.namedWindow('z', cv2.WND_PROP_FULLSCREEN)
+                cv2.setWindowProperty('z', cv2.WND_PROP_FULLSCREEN,
+                                      cv2.cv.CV_WINDOW_FULLSCREEN)
+                cv2.imshow('z', img)
+                cv2.waitKey(1000)
         cv2.imwrite('alert.jpg', img)
-        cv2.waitKey(1000)
+        
 
     print(time() - start, 'total seconds')
     print()
