@@ -23,7 +23,7 @@ RUN sudo pip install picamera requests sh
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
 RUN sudo pip install dlib==19.1.0
 
-RUN sudo apt-get install apt-utils, htop
+RUN sudo apt-get install apt-utils htop
 
 #RUN sudo apt-get install -y realvnc-vnc-server
 #RUN sudo apt-get realvnc
