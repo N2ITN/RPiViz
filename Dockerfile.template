@@ -54,6 +54,6 @@ ENV INITSYSTEM on
 
 
 # main.py will run when container starts up on the device
-run -d -p 5901:5901 vncserver
+
 #CMD python /usr/src/app/raspiviz/executor.py 
 
