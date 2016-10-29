@@ -39,4 +39,4 @@ def crop2face(pic, predictor):
         wide = cv2.Canny(blurred, 10, 200)
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         shape = predictor(wide, detections)
-        return shape, tight
+        return shape, wide
