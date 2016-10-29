@@ -45,11 +45,12 @@ print("starting")
 def camera_loop(show=False):
     """ Orchestrator of all """
     buffer = []
+    cal = 1
     while True:
         snap = 'snap.jpg'
         start = time()
         nv.capture(snap)
-        cal = .34
+        
 
         # TODO: Function here
         try:
@@ -73,7 +74,11 @@ def camera_loop(show=False):
         alertness = 'calibrating'
 
         # TODO: Functionalize as "alert", create option for network alert or preview window
-        if len(buffer) > 10:
+        if len(buffer) < 5:
+            print 'calibrating, show neutral awake face'
+        elif len(buffer) == 10:
+            cal = vector
+        else:
             try:
                 if int(vector) > 85:
                     defcon = (0, 255, 0)

@@ -53,11 +53,9 @@ RUN mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_la
 ENV INITSYSTEM on
 
 
-RUN cd raspiviz && python executor.py
-
 # main.py will run when container starts up on the device
 
 #CMD python /usr/src/app/raspiviz/executor.py 
 
-CMD ["python", "-m", "SimpleHTTPServer","80"]
+CMD ["cd", "raspiviz", "&&", "python", "executor.py", "&", "python", "-m", "SimpleHTTPServer","80"]
 
