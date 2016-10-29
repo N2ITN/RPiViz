@@ -19,6 +19,7 @@ Resin.io
 
 `bash 
 resin ssh
+
 cd raspiviz && python executor.py `
 
 Images available via local web server
