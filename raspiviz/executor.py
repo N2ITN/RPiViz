@@ -49,7 +49,7 @@ def camera_loop(show=False):
         snap = 'snap.jpg'
         start = time()
         nv.capture(snap)
-        cal = .320
+        cal = .32
 
         # TODO: Function here
         try:
@@ -68,13 +68,14 @@ def camera_loop(show=False):
         print(buffer)
         a = False
         vector = int(np.mean(buffer))
+        print(vector)
         defcon = (255, 255, 255)
         alertness = 'calibrating'
 
         # TODO: Functionalize as "alert", create option for network alert or preview window
         if len(buffer) > 10:
             try:
-                if int(vector) > 85:
+                if int(vector) > 75:
                     defcon = (0, 255, 0)
                     alertness = 'excellent'
                     #requests.get('http://192.168.43.45:3000/fan/off')
