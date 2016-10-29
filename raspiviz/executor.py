@@ -42,7 +42,7 @@ print("starting")
 
 
 #@profile
-def camera_loop(loops, nap):
+def camera_loop():
     """ Orchestrator of all """
     buffer = []
     while True:
