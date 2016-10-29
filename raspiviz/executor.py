@@ -91,7 +91,7 @@ def camera_loop(show=False):
         alertness = 'calibrating'
 
         # TODO: Functionalize as "alert", create option for network alert or preview window
-        if calibrating:
+        if calibrating == True:
             cal_len = len(calibrator)
             if cal_len < 5:
                 print 'calibrating, show neutral awake face'
