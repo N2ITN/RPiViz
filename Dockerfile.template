@@ -42,7 +42,7 @@ RUN ls
 RUN cp shape_predictor_68_face_landmarks.dat raspiviz
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN sudo pip install Flask==0.10.1
+#RUN sudo pip install Flask==0.10.1
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
 
@@ -59,4 +59,4 @@ ENV INITSYSTEM on
 
 #CMD python /usr/src/app/raspiviz/executor.py 
 
-CMD ["python", "web_server.py"]
+CMD ["python", "-m", "SimpleHTTPServer"]
