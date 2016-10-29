@@ -60,4 +60,4 @@ ENV INITSYSTEM on
 #CMD python /usr/src/app/raspiviz/executor.py 
 
 #CMD ["python", "-m", "SimpleHTTPServer","80"]
-CMD ["vncserver","80"]
+CMD ['vncserver', '-display', '800x600', '-depth', '16', '-httpport', '80']
