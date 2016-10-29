@@ -12,11 +12,11 @@ import dlib
 import os
 import sh
 
-p = __file__
-# Load in main script to reduce disk IO
-p = os.path.dirname(os.path.realpath(__file__))
+# p = __file__
+# # Load in main script to reduce disk IO
+# p = os.path.dirname(os.path.realpath(__file__))
 
-target = os.path.join(p, "shape_predictor_68_face_landmarks.dat")
+target = os.path.join("shape_predictor_68_face_landmarks.dat")
 print(target)
 predictor = dlib.shape_predictor(target)
 
