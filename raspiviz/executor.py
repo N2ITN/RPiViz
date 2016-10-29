@@ -11,13 +11,13 @@ nv = PiCamera()
 import dlib
 import os
 import sh
+from time import ctime
 
 # p = __file__
 # # Load in main script to reduce disk IO
 # p = os.path.dirname(os.path.realpath(__file__))
 
 target = os.path.join("shape_predictor_68_face_landmarks.dat")
-print(target)
 predictor = dlib.shape_predictor(target)
 
 #Landmark identifier. Set the filename to whatever you named the downloaded file
@@ -57,14 +57,14 @@ def camera_loop(show=False):
         except TypeError:
             continue
         analysis = do_magic.analyze(shape, frame)
-        print((start - time(), "finished analysis"))
+        print 
         if not analysis:
             print("no face detected")
             continue
         perc_asleep = round((analysis / cal) * 100, 2)
 
         # TODO: Function
-        buffer.append(perc_asleep)
+        buffer.append(int(perc_asleep))
         print(buffer)
         a = False
         vector = int(np.mean(buffer))
@@ -72,7 +72,7 @@ def camera_loop(show=False):
         alertness = 'calibrating'
 
         # TODO: Functionalize as "alert", create option for network alert or preview window
-        if len(buffer) > 1:
+        if len(buffer) > 10:
             try:
                 if int(vector) > 85:
                     defcon = (0, 255, 0)
@@ -96,7 +96,9 @@ def camera_loop(show=False):
             except Exception as e:
                 print(e)
             buffer.pop(0)
+            print(ctime())
             print(alertness)
+
 
     # TODO: Functionalize as "preview_window"
         text = ' '.join(['ratio', str(analysis)])
@@ -118,7 +120,7 @@ def camera_loop(show=False):
         cv2.imwrite('alert.jpg', img)
         
 
-    print(time() - start, 'total seconds')
+
     print()
     print()
 
