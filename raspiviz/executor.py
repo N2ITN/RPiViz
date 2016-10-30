@@ -103,7 +103,7 @@ def camera_loop(show=False):
 
                 calibrator.append(perc_asleep)
             elif len(calibrator) == 5:
-                cal = int(np.mean(calibrator))
+                cal = np.mean(calibrator)
                 calibrating = False
 
         else:
