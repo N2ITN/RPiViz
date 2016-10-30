@@ -96,7 +96,10 @@ def camera_loop(show=False):
             cal_len = len(calibrator)
             if cal_len < 5:
                 print 'calibrating, show neutral awake face'
-                analysis, perc_asleep = get_analysis()
+                res = get_analysis()
+                if res:
+                    analysis, perc_asleep = res
+                else: continue 
 
                 calibrator.append(int(perc_asleep))
             elif len(calibrator) == 5:
@@ -104,7 +107,11 @@ def camera_loop(show=False):
                 calibrating = False
 
         else:
-            analysis, perc_asleep = get_analysis()
+            res = get_analysis()
+            if res:
+                analysis, perc_asleep = res
+            else: continue
+            
             buffer.append(int(perc_asleep))
             print(buffer)
             a = False
