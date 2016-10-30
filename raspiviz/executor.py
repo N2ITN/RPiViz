@@ -40,7 +40,7 @@ except Exception as e:
 '''
 print("starting")
 
-calibrating = True
+
 #@profile
 def camera_loop(show=False):
     """ Orchestrator of all """
@@ -82,6 +82,7 @@ def camera_loop(show=False):
     buffer = []
     cal = 1
     calibrator = []
+    calibrating = True
     while True:
         snap = 'snap.jpg'
         start = time()
