@@ -101,7 +101,7 @@ def camera_loop(show=False):
                     analysis, perc_asleep = res
                 else: continue 
 
-                calibrator.append(int(perc_asleep))
+                calibrator.append(perc_asleep)
             elif len(calibrator) == 5:
                 cal = int(np.mean(calibrator))
                 calibrating = False
@@ -112,7 +112,7 @@ def camera_loop(show=False):
                 analysis, perc_asleep = res
             else: continue
             
-            buffer.append(int(perc_asleep))
+            buffer.append(perc_asleep)
             print(buffer)
             a = False
             vector = int(np.mean(buffer))
