@@ -115,7 +115,7 @@ def camera_loop(show=False):
             buffer.append(perc_asleep)
             print(buffer)
             a = False
-            vector = int(np.mean(buffer))
+            vector = np.mean(buffer)
             print(vector)
             defcon = (255, 255, 255)
             try:
