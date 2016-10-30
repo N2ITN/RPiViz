@@ -55,7 +55,7 @@ ENV INITSYSTEM on
 
 # main.py will run when container starts up on the device
 
-#CMD python /usr/src/app/raspiviz/executor.py 
+CMD python /usr/src/app/raspiviz/executor.py 
 
-CMD ["python", "-m", "SimpleHTTPServer","80"]
+#CMD ["python", "-m", "SimpleHTTPServer","80"]
 

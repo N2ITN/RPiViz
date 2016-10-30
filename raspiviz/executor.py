@@ -119,13 +119,13 @@ def camera_loop(show=False):
             print(vector)
             defcon = (255, 255, 255)
             try:
-                if int(vector) > 85:
+                if vector > 0.85:
                     defcon = (0, 255, 0)
                     alertness = 'excellent'
                     #requests.get('http://192.168.43.45:3000/fan/off')
                     #requests.get('http://192.168.43.45:3000/lght/off')
 
-                elif int(vector) > 75:
+                elif vector > 0.75:
                     alertness = 'okay'
                     #requests.get('http://192.168.43.45:3000/fan/on')
                     #requests.get('http://192.168.43.45:3000/lght/on')
@@ -135,7 +135,7 @@ def camera_loop(show=False):
                     defcon = (0, 0, 255)
                     alertness = 'danger zone'
                     #requests.get('http://192.168.43.45:3000/buzz/on')
-                    sleep(2)
+                    #sleep(2)
                     #requests.get('http://192.168.43.45:3000/buzz/off')
                     a = True
             except Exception as e:
