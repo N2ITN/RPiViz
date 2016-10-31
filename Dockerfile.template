@@ -30,15 +30,15 @@ RUN sudo apt-get install apt-utils htop
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #RUN sudo systemctl enable vncserver-virtuald.service
 RUN sudo apt-get install tightvncserver
-
+RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
+RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
 COPY ./requirements.txt /requirements.txt
 
-RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
-RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
+
 
 RUN vncserver
 
