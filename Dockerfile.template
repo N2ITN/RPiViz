@@ -48,7 +48,7 @@ COPY . ./
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
 RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 RUN mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_landmarks.dat
-RUN vncserver
+#RUN vncserver
 
 # switch on systemd init system in container
 ENV INITSYSTEM on
