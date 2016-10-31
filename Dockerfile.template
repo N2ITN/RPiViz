@@ -25,11 +25,11 @@ RUN sudo pip install dlib==19.1.0
 
 RUN sudo apt-get install apt-utils htop
 
-#RUN sudo apt-get install -y realvnc-vnc-server
+RUN sudo apt-get install -y realvnc-vnc-server
 #RUN sudo apt-get realvnc
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #RUN sudo systemctl enable vncserver-virtuald.service
-RUN sudo apt-get install tightvncserver
+# RUN sudo apt-get install tightvncserver
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
 RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 
@@ -40,7 +40,7 @@ COPY ./requirements.txt /requirements.txt
 
 
 
-RUN vncserver
+
 
 
 #RUN sudo pip install Flask==0.10.1
@@ -53,7 +53,7 @@ RUN mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_la
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
-
+RUN vncserver
 # main.py will run when container starts up on the device
 
 #CMD python /usr/src/app/raspiviz/executor.py 
