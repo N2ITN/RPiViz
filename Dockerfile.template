@@ -40,7 +40,7 @@ COPY ./requirements.txt /requirements.txt
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
 RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 
-RUN vncserver :1 -geometry 1920x1080 -depth 24
+RUN vncserver
 
 
 #RUN sudo pip install Flask==0.10.1
