@@ -45,6 +45,7 @@ RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
 RUN git clone https://github.com/tensorflow/tensorflow.git
 RUN cd tensorflow && \
 tensorflow/contrib/makefile/download_dependencies.sh
+RUN cd tensorflow && \
 RUN tensorflow/contrib/makefile/compile_pi_protobuf.sh
 
 RUN sudo ldconfig  # refresh shared library cache && \
