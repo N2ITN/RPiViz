@@ -22,7 +22,7 @@ WORKDIR /usr/src/app/raspiviz
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \ 
  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 
-COPY shape_predictor_68_face_landmarks.dat ./raspiviz/shape_predictor_68_face_landmarks.dat
+#COPY shape_predictor_68_face_landmarks.dat ./raspiviz/shape_predictor_68_face_landmarks.dat
 
 WORKDIR /usr/src/app/
 RUN git clone https://github.com/tensorflow/tensorflow.git
