@@ -17,7 +17,7 @@ RUN sudo apt-get install apt-utils htop
 RUN sudo apt-get install x11-xserver-utils libxtst6
 RUN curl -L -o VNC.tar.gz https://www.realvnc.com/download/binary/latest/debian/arm/ && \
 tar xvf VNC.tar.gz && \
-sudo dpkg -i VNC-Se* && \
+sudo dpkg -i VNC-Se* 
 
 
 
