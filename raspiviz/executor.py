@@ -145,7 +145,7 @@ def camera_loop(show=False):
                 buffer.pop(0)
             print(ctime())
             print(alertness)
-            print()
+            print
             image_out()
             
 
