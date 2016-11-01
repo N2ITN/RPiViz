@@ -27,7 +27,7 @@ nv.rotation = 180
 #nv.resolution = (480, 360)
 #nv.resolution = (960, 540)
 #nv.resolution = (1280, 720)
-nv.resollution = (1296,480)
+nv.resollution = (1920,1088)
 #nv.resolution = (1920, 1080)
 #nv.resolution = (2592,1944)
 
