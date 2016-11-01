@@ -1,7 +1,7 @@
 # base-image for python on any machine using a template variable,
 # see more about dockerfile templates here:http://docs.resin.io/pages/deployment/docker-templates
 FROM resin/raspberrypi3-python
-
+WORKDIR /usr/src/app
 RUN pwd
 
 RUN sudo apt-get update && sudo apt-get upgrade
@@ -19,6 +19,7 @@ RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shap
  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
  #mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_landmarks.dat
 
+COPY shape_predictor_68_face_landmarks.dat ./raspiviz/shape_predictor_68_face_landmarks.dat
 
 
 RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8 && \
@@ -35,15 +36,14 @@ RUN sudo ldconfig  # refresh shared library cache && \
 RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
  OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
 
+COPY  tensorflow tensorflow
 
 
 
 
-WORKDIR /usr/src/app
+
 # Copy requirements.txt first for better cache on later pushes
 COPY ./requirements.txt /requirements.txt
-COPY shape_predictor_68_face_landmarks.dat ./raspiviz/shape_predictor_68_face_landmarks.dat
-COPY  tensorflow tensorflow
 
 #RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
 # OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
