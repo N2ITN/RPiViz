@@ -14,12 +14,12 @@ RUN sudo pip install dlib==19.1.0
 
 RUN sudo apt-get install apt-utils htop
 
+RUN sudo apt-get install x11-xserver-utils && \
+curl -L -o VNC.tar.gz https://www.realvnc.com/download/binary/latest/debian/arm/ && \
+tar xvf VNC.tar.gz && \
+sudo dpkg -i VNC-Se* && \
+vncserver
 
-RUN curl -L -o VNC.tar.gz https://www.realvnc.com/download/binary/latest/debian/arm/ && \
- tar xvf VNC.tar.gz && \
- sudo dpkg -i VNC-Se* && \
- #vncserver
- sudo systemctl start vncserver-x11-serviced.service && \
 
 
 WORKDIR /usr/src/app
