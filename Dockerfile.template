@@ -14,7 +14,7 @@ RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake
 RUN sudo pip install dlib==19.1.0
 
 # tensorflow dependencies 
-RUN sudo apt-get install apt-utils htop python-pip python-dev && /
+RUN sudo apt-get install apt-utils htop python-pip python-dev && \
  sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
 
 
