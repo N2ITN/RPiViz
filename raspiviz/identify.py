@@ -13,13 +13,13 @@ def crop2face(pic, predictor):
 
     img = cv2.imread(pic)
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
-    ''''
+    '''
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     clahe_image = clahe.apply(gray)
 
 
-    ''''
+    '''
     clahe_iamge = LBP.main(img)
     #equ = cv2.equalizeHist(gray)  #<--- more drastic contrast boosting, doesn't work evenly across lighting conditions
     faceprime = face_cascade.detectMultiScale(clahe_image, 1.3, 5)
