@@ -21,17 +21,6 @@ WORKDIR /usr/src/app
 COPY ./requirements.txt /requirements.txt
 
 
-RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
-RUN git clone https://github.com/tensorflow/tensorflow.git
-RUN cd tensorflow && \
-tensorflow/contrib/makefile/download_dependencies.sh
-#RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
-#./autogen.sh && \
-#./configure && \
-#make && \
-#sudo make install && \
-#sudo ldconfig  # refresh shared library cache && \
-#cd /usr/src/app
 
 #RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
 # OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
@@ -48,7 +37,17 @@ RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shap
  bunzip2  shape_predictor_68_face_landmarks.dat.bz2 && \
  mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_landmarks.dat
 
-
+RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
+RUN git clone https://github.com/tensorflow/tensorflow.git
+RUN cd tensorflow && \
+tensorflow/contrib/makefile/download_dependencies.sh
+#RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
+#./autogen.sh && \
+#./configure && \
+#make && \
+#sudo make install && \
+#sudo ldconfig  # refresh shared library cache && \
+#cd /usr/src/app
 
 # switch on systemd init system in container
 ENV INITSYSTEM on
