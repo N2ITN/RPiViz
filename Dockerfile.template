@@ -36,8 +36,8 @@ WORKDIR /usr/src/app/tensorflow
 
 RUN ./tensorflow/contrib/makefile/download_dependencies.sh
 
-RUN sudo apt-get install unzip protobuf
-
+RUN sudo apt-get install unzip libprotobuf-dev protobuf-compiler
+RUN sudo pip install protobuf
 # RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
 # ./autogen.sh && ./configure && make && sudo make install
 
