@@ -21,16 +21,16 @@ RUN pwd
 RUN cd tensorflow && \
 tensorflow/contrib/makefile/download_dependencies.sh
 RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
-RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
-./autogen.sh && \
-./configure && \
-make && \
-sudo make install && \
-sudo ldconfig  # refresh shared library cache && \
-cd /usr/src/app
+#RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
+#./autogen.sh && \
+#./configure && \
+#make && \
+#sudo make install && \
+#sudo ldconfig  # refresh shared library cache && \
+#cd /usr/src/app
 
-RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
- OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
+#RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
+# OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
 
 
 
