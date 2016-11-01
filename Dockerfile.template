@@ -39,8 +39,6 @@ RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/raw/master/b
 COPY . ./
 
 
-
-
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
