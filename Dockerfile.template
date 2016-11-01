@@ -1,7 +1,7 @@
 # base-image for python on any machine using a template variable,
 # see more about dockerfile templates here:http://docs.resin.io/pages/deployment/docker-templates
 FROM resin/raspberrypi3-python
-WORKDIR /usr/src/app
+
 RUN pwd
 
 RUN sudo apt-get update && sudo apt-get upgrade
@@ -12,8 +12,16 @@ RUN sudo pip install picamera requests sh
 RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
 RUN sudo pip install dlib==19.1.0
 RUN sudo apt-get install apt-utils htop python-pip python-dev
-
+RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
 # RUN sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc1-cp27-none-linux_x86_64.whl
+
+
+
+
+WORKDIR /usr/src/app/raspiviz
+
+
+
 
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \ 
  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
@@ -21,11 +29,8 @@ RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shap
 
 COPY shape_predictor_68_face_landmarks.dat ./raspiviz/shape_predictor_68_face_landmarks.dat
 
-
-RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8 && \
+WORKDIR /usr/src/app/
  git clone https://github.com/tensorflow/tensorflow.git
-
-
 
 RUN cd tensorflow
 RUN  ./tensorflow/contrib/makefile/download_dependencies.sh && \
@@ -36,7 +41,7 @@ RUN sudo ldconfig  # refresh shared library cache && \
 RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
  OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
 
-COPY  tensorflow tensorflow
+COPY  tensorflow ./tensorflow
 
 
 
