@@ -30,29 +30,14 @@ RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shap
 # tensorflow
 WORKDIR /usr/src/app/
 
-RUN git clone https://github.com/tensorflow/tensorflow.git
+# RUN git clone https://github.com/tensorflow/tensorflow.git
 
-WORKDIR /usr/src/app/tensorflow
+# WORKDIR /usr/src/app/tensorflow
 
-RUN ./tensorflow/contrib/makefile/download_dependencies.sh
+# RUN ./tensorflow/contrib/makefile/download_dependencies.sh
 
 RUN sudo pip install tensorflow
 
-
-#RUN sudo apt-get install unzip libprotobuf-dev protobuf-compiler
-#RUN sudo pip install protobuf
-
-#RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/protobuf-3.0.0-cp27-none-linux_x86_64.whl
-
-#RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
-# ./autogen.sh && ./configure && make && sudo make install
-
-#RUN ./tensorflow/contrib/makefile/compile_pi_protobuf.sh
-
-# RUN sudo ldconfig  # refresh shared library cache
- 
-# RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
-#  OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
 
 
 # This will copy all files in our root to the working directory in the container
