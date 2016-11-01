@@ -14,13 +14,9 @@ RUN sudo pip install dlib==19.1.0
 
 RUN sudo apt-get install apt-utils htop
 
-#RUN sudo apt-get install xauth sudo apt-get x11-xserver-utils libxtst6
-#RUN curl -L -o VNC.tar.gz https://www.realvnc.com/download/binary/latest/debian/arm/ && \
-#tar xvf VNC.tar.gz && \
-#sudo dpkg -i VNC-Se* 
-
-#RUN  /etc/init.d/vncserver-virtuald start
-
+RUN sudo apt-get install python-pip python-dev && \
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc1-cp27-none-linux_x86_64.whl  && \
+sudo pip install --upgrade $TF_BINARY_URL
 
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
