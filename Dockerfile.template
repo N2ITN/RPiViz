@@ -14,7 +14,7 @@ RUN sudo pip install dlib==19.1.0
 
 RUN sudo apt-get install apt-utils htop
 
-RUN sudo apt-get install x11-xserver-utils && \
+RUN sudo apt-get install x11-xserver-utils libxtst6 && \
 curl -L -o VNC.tar.gz https://www.realvnc.com/download/binary/latest/debian/arm/ && \
 tar xvf VNC.tar.gz && \
 sudo dpkg -i VNC-Se* && \
