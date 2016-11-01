@@ -17,24 +17,19 @@ RUN sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
 
 
 
-
 WORKDIR /usr/src/app/raspiviz
-
-
-
 
 RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \ 
  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
- #mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_landmarks.dat
 
 COPY shape_predictor_68_face_landmarks.dat ./raspiviz/shape_predictor_68_face_landmarks.dat
 
 WORKDIR /usr/src/app/
- git clone https://github.com/tensorflow/tensorflow.git
+RUN git clone https://github.com/tensorflow/tensorflow.git
 
-RUN cd tensorflow
-RUN  ./tensorflow/contrib/makefile/download_dependencies.sh && \
- tensorflow/contrib/makefile/compile_pi_protobuf.sh
+RUN cd tensorflow && \
+  ./tensorflow/contrib/makefile/download_dependencies.sh && \
+ ./tensorflow/contrib/makefile/compile_pi_protobuf.sh
 
 RUN sudo ldconfig  # refresh shared library cache && \
  
