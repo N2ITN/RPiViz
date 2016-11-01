@@ -40,7 +40,8 @@ RUN sudo apt-get install unzip libprotobuf-dev protobuf-compiler
 RUN sudo pip install protobuf
 # RUN cd tensorflow/contrib/makefile/downloads/protobuf/ && \
 # ./autogen.sh && ./configure && make && sudo make install
-RUN ./tensorflow/contrib/makefile/compile_pi_protobuf.sh
+
+#####RUN ./tensorflow/contrib/makefile/compile_pi_protobuf.sh
 
 # RUN sudo ldconfig  # refresh shared library cache
  
