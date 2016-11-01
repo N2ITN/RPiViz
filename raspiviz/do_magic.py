@@ -51,12 +51,13 @@ def analyze(shape, frame):
             frame, (shape.part(i).x, shape.part(i).y),
             1, (255, 255, 255),
             thickness=1)
-    y1 = shape.part(8).y
-    y2 = (shape.part(24).y + shape.part(19).y) / 2
-    x1 = shape.part(2).x
-    x2 = shape.part(16).x
-    crop = frame[y2 - 60:y1 + 30, x1 - 50:x2 + 50]
-    cv2.imwrite('snap_draw.jpg', crop)
+    # y1 = shape.part(8).y
+    # y2 = (shape.part(24).y + shape.part(19).y) / 2
+    # x1 = shape.part(2).x
+    # x2 = shape.part(16).x
+    # crop = frame[y2 - 60:y1 + 30, x1 - 50:x2 + 50]
+    # cv2.imwrite('snap_draw.jpg', crop)
+    cv2.imwrite('snap_draw.jpg', frame)
 
     # Return final ratio
     return total_ratio.round(4)

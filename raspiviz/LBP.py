@@ -20,7 +20,8 @@ def get_pixel_else_0(l, idx, idy, default=0):
 
 
 def main(img):
-    #img = cv2.imread(r"zz.jpg", 0)
+    #img = cv2.imread(img,0)
+    
 
     transformed_img = img # cv2.imread(r"zz.jpg", 0)
 
@@ -49,6 +50,7 @@ def main(img):
 
 
 
-    cv2.imwrite('thresholded image.jpg', transformed_img)
+    cv2.imwrite('thresholded_image.jpg', transformed_img)
     return transformed_img
+main(cv2.imread(img)
 
