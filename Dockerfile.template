@@ -19,9 +19,10 @@ RUN curl -L -o VNC.tar.gz https://www.realvnc.com/download/binary/latest/debian/
 tar xvf VNC.tar.gz && \
 sudo dpkg -i VNC-Se* 
 
+RUN  /etc/init.d/vncserver-virtuald start
 
-
-
+RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \ 
+ bunzip2  shape_predictor_68_face_landmarks.dat.bz2
 WORKDIR /usr/src/app
 # Copy requirements.txt first for better cache on later pushes
 COPY ./requirements.txt /requirements.txt
@@ -29,10 +30,9 @@ COPY ./requirements.txt /requirements.txt
 
 # This will copy all files in our root to the working directory in the container
 COPY . ./
-RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 
-RUN  bunzip2  shape_predictor_68_face_landmarks.dat.bz2
+
 RUN mv shape_predictor_68_face_landmarks.dat raspiviz/shape_predictor_68_face_landmarks.dat
-RUN vncserver
+
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
