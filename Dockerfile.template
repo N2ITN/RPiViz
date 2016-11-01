@@ -31,7 +31,7 @@ RUN cd tensorflow && \
   ./tensorflow/contrib/makefile/download_dependencies.sh && \
  ./tensorflow/contrib/makefile/compile_pi_protobuf.sh
 
-RUN sudo ldconfig  # refresh shared library cache && \
+RUN sudo ldconfig  # refresh shared library cache
  
 RUN make -f tensorflow/contrib/makefile/Makefile HOST_OS=PI TARGET=PI \
  OPTFLAGS="-Os -mfpu=neon-vfpv4 -funsafe-math-optimizations -ftree-vectorize" CXX=g++-4.8
