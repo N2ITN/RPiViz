@@ -19,7 +19,8 @@ RUN sudo pip install dlib==19.1.0
 
 WORKDIR /usr/src/app/raspiviz
 
-RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \ 
+RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \
+ pwd && ls && \
  bunzip2  shape_predictor_68_face_landmarks.dat.bz2 && \
  pwd
 
