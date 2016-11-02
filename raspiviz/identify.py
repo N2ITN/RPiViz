@@ -31,19 +31,18 @@ def crop2face(pic, predictor):
         y2 = y + h + grow
 
         cv2.circle(
-            img, x ,y,
+            clahe_image, x,y,
             1, (255, 255, 255),
             thickness=1)
-        cv2.imwrite('xy.jpg', img)
-        exit()
+        print 'circle made'
+        cv2.imwrite('xy.jpg', clahe_image)
+
         # Convert to dlib rectangle datatype
-        # detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
-        detections = dlib.rectangle(int(x), int(y), int(x2), int(y2))
+        detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
+        # detections = dlib.rectangle(int(x), int(y), int(x2), int(y2))
 
         # Save cropped face img
         color_normal = img[y1:y2, x1:x2]
-        height = np.size(color_normal, 0)
-        width = np.size(color_normal, 1)
 
         cv2.imwrite('snapcrop.jpg', color_normal)
 
