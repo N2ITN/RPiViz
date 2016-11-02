@@ -148,7 +148,7 @@ def camera_loop(show=False):
             print
             image_out()
             
-
+    exit()
 def start():
 
     camera_loop()

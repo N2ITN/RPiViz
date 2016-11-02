@@ -14,7 +14,7 @@ def crop2face(pic, predictor):
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
     
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(5, 5))
     clahe_image = clahe.apply(gray)
 
     
@@ -22,35 +22,33 @@ def crop2face(pic, predictor):
     faceprime = face_cascade.detectMultiScale(clahe_image, 1.3, 5)
 
     # Convert face coords to rectangle corner points, grow rectangle to capture full face
-    grow = (30)
+    
     for (x, y, w, h) in faceprime:
+        grow = h/10
         size = (h, w)
         x1 = x - grow
         x2 = x + w + grow
         y1 = y - grow
         y2 = y + h + grow
 
-        # import test_points
-        # test_points.circle(x,y)
-        # print x,y, w,h
-        # exit()
-        height, width = img.shape[:2]
         
         # Convert to dlib rectangle datatype
         # detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
         # detections = dlib.rectangle(int(x), int(y), int(x2), int(y2))
-        detections = dlib.rectangle(int(0), int(height), int(width), int(height+height))
+        
         # Save cropped face img
         color_normal = img[y1:y2, x1:x2]
-        
-        
         cv2.imwrite('snapcrop.jpg', color_normal)
 
-        #blurred = cv2.GaussianBlur(clahe_image, (3, 3), 0)
-        #tight = cv2.Canny(blurred, 225, 250)
-        #wide = cv2.Canny(blurred, 10, 100)
+        # import test_points
+        # test_points.circle(w,h)
+        detections = dlib.rectangle(int(0), int(0), int(w), int(h))
+
+        # blurred = cv2.GaussianBlur(clahe_image, (3, 3), 0)
+        # tight = cv2.Canny(blurred, 225, 250)
+        # wide = cv2.Canny(blurred, 10, 100)
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         clahe_crop = clahe_image[y1:y2, x1:x2]
         #LBP_img = LBP.main(clahe_crop)
-        shape = predictor(clahe_image, detections)
-        return shape, clahe_image
+        shape = predictor(clahe_crop, detections)
+        return shape, color_normal

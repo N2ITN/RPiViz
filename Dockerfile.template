@@ -3,13 +3,13 @@
 FROM resin/raspberrypi3-python
 
 
-RUN sudo apt-get update --fix-missing && sudo apt-get upgrade
+RUN sudo apt-get update && sudo apt-get upgrade -y
 
 # general python
 RUN sudo pip install picamera requests sh 
 
 # dlib dependencies
-RUN sudo apt-get install libopencv-dev python-opencv libboost-python-dev  cmake 
+RUN sudo apt-get install -y libopencv-dev python-opencv libboost-python-dev  cmake 
 RUN sudo pip install dlib==19.1.0
 
 # tensorflow dependencies 
