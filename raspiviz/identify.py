@@ -17,8 +17,6 @@ def crop2face(pic, predictor):
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     clahe_image = clahe.apply(gray)
 
-
-    
     
     #equ = cv2.equalizeHist(gray)  #<--- more drastic contrast boosting, doesn't work evenly across lighting conditions
     faceprime = face_cascade.detectMultiScale(clahe_image, 1.3, 5)
@@ -32,11 +30,21 @@ def crop2face(pic, predictor):
         y1 = y - grow
         y2 = y + h + grow
 
+        cv2.circle(
+            img, x ,y,
+            1, (255, 255, 255),
+            thickness=1)
+        cv2.imwrite('xy.jpg', img)
+        exit()
         # Convert to dlib rectangle datatype
-        detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
+        # detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
+        detections = dlib.rectangle(int(x), int(y), int(x2), int(y2))
 
         # Save cropped face img
         color_normal = img[y1:y2, x1:x2]
+        height = np.size(color_normal, 0)
+        width = np.size(color_normal, 1)
+
         cv2.imwrite('snapcrop.jpg', color_normal)
 
         #blurred = cv2.GaussianBlur(clahe_image, (3, 3), 0)

@@ -1,0 +1,6 @@
+uuid: 4904a74db7b8b7f3c1ad1a3d0fa821450307329f0702661ae1ba4b19259883
+destination: /usr/src/app
+port: 22
+ignore:
+  - .git
+  - node_modules/
