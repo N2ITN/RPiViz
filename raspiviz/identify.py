@@ -46,4 +46,4 @@ def crop2face(pic, predictor):
         clahe_crop = clahe_image[y1:y2, x1:x2]
         #LBP_img = LBP.main(clahe_crop)
         shape = predictor(clahe_crop, detections)
-        return shape, clahe_image
+        return shape, clahe_crop
