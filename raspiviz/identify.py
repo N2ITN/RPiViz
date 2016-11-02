@@ -30,20 +30,20 @@ def crop2face(pic, predictor):
         y1 = y - grow
         y2 = y + h + grow
 
-        cv2.circle(
-            clahe_image, x,y,
-            1, (255, 255, 255),
-            thickness=1)
-        print 'circle made'
-        cv2.imwrite('xy.jpg', clahe_image)
-
+        # import test_points
+        # test_points.circle(x,y)
+        # print x,y, w,h
+        # exit()
+        height, width = img.shape[:2]
+        
         # Convert to dlib rectangle datatype
-        detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
+        # detections = dlib.rectangle(int(x), int(y), int(x + w), int(y + h))
         # detections = dlib.rectangle(int(x), int(y), int(x2), int(y2))
-
+        detections = dlib.rectangle(int(0), int(height), int(width), int(height+height))
         # Save cropped face img
         color_normal = img[y1:y2, x1:x2]
-
+        
+        
         cv2.imwrite('snapcrop.jpg', color_normal)
 
         #blurred = cv2.GaussianBlur(clahe_image, (3, 3), 0)
@@ -52,5 +52,5 @@ def crop2face(pic, predictor):
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         clahe_crop = clahe_image[y1:y2, x1:x2]
         #LBP_img = LBP.main(clahe_crop)
-        shape = predictor(clahe_crop, detections)
-        return shape, clahe_crop
+        shape = predictor(clahe_image, detections)
+        return shape, clahe_image
