@@ -10,36 +10,40 @@ RUN sudo pip install picamera requests sh
 
 # dlib dependencies
 RUN sudo apt-get install -y libopencv-dev python-opencv libboost-python-dev  cmake 
-RUN sudo pip install dlib==19.1.0
+#RUN sudo pip install dlib==19.1.0
 
 # tensorflow dependencies 
-RUN sudo apt-get install apt-utils htop python-pip python-dev && \
- sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
+# RUN sudo apt-get install -y apt-utils htop python-pip python-dev && \
+#  sudo apt-get install -y autoconf automake libtool gcc-4.8 g++-4.8
 
 
-# shape_predictor_68_face_landmarks
-WORKDIR /usr/src/app/raspiviz
-
-RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \
-
- bunzip2  shape_predictor_68_face_landmarks.dat.bz2 && \
- pwd && ls
 
 
-# tensorflow
-WORKDIR /usr/src/app/
 
-RUN sudo apt-get install python-pip python-dev
-RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/raw/master/bin/tensorflow-0.9.0-cp27-none-linux_armv7l.whl && \
- sudo pip install tensorflow-0.9.0-cp27-none-linux_armv7l.whl
+# # tensorflow
+# WORKDIR /usr/src/app/
 
+# RUN sudo apt-get install python-pip python-dev
+# RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/raw/master/bin/tensorflow-0.9.0-cp27-none-linux_armv7l.whl && \
+#  sudo pip install tensorflow-0.9.0-cp27-none-linux_armv7l.whl
+
+
+# # shape_predictor_68_face_landmarks
+# WORKDIR /usr/src/app/raspiviz
+
+# RUN curl -o shape_predictor_68_face_landmarks.dat.bz2 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 && \
+#  bunzip2  shape_predictor_68_face_landmarks.dat.bz2 && \
+#  pwd && ls
 
 # This will copy all files in our root to the working directory in the container
 COPY . ./
 
+
 WORKDIR /usr/src/app/raspiviz
+RUN ln -s /usr/local/lib/python2.7/site-packages/tensorflow tensorflow
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
-CMD ["python", "-m", "SimpleHTTPServer","80"]
+# CMD ["python", "-m", "SimpleHTTPServer","80"]
+CMD ["python", "main.py"]
 

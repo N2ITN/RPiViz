@@ -49,7 +49,7 @@ def analyze(shape, frame):
     for i in range(1, 68):
         cv2.circle(
             frame, (shape.part(i).x, shape.part(i).y),
-            1, (255, 255, 255),
+            1, (255, 255, 0),
             thickness=1)
     # y1 = shape.part(8).y
     # y2 = (shape.part(24).y + shape.part(19).y) / 2

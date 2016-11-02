@@ -18,7 +18,7 @@ def crop2face(pic, predictor):
     clahe_image = clahe.apply(gray)
 
     
-    #equ = cv2.equalizeHist(gray)  #<--- more drastic contrast boosting, doesn't work evenly across lighting conditions
+    eq = cv2.equalizeHist(gray)  #<--- more drastic contrast boosting, doesn't work evenly across lighting conditions
     faceprime = face_cascade.detectMultiScale(clahe_image, 1.3, 5)
 
     # Convert face coords to rectangle corner points, grow rectangle to capture full face
@@ -39,6 +39,7 @@ def crop2face(pic, predictor):
         # Save cropped face img
         color_normal = img[y1:y2, x1:x2]
         cv2.imwrite('snapcrop.jpg', color_normal)
+        
 
         # import test_points
         # test_points.circle(w,h)
@@ -49,6 +50,11 @@ def crop2face(pic, predictor):
         # wide = cv2.Canny(blurred, 10, 100)
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         clahe_crop = clahe_image[y1:y2, x1:x2]
+        eq1 = cv2.equalizeHist(clahe_crop)
+        cv2.imwrite('clahe_crop.jpg', clahe_crop)
+        cv2.imwrite('normal_eq.jpg', eq)
+        cv2.imwrite('clahe_eq.jpg', eq1)
+
         #LBP_img = LBP.main(clahe_crop)
-        shape = predictor(clahe_crop, detections)
-        return shape, color_normal
+        shape = predictor(eq1, detections)
+        return shape, eq1
