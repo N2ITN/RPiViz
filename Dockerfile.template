@@ -2,9 +2,8 @@
 # see more about dockerfile templates here:http://docs.resin.io/pages/deployment/docker-templates
 FROM resin/raspberrypi3-python
 
-RUN pwd
 
-RUN sudo apt-get update && sudo apt-get upgrade
+RUN sudo apt-get update --fix-missing && sudo apt-get upgrade
 
 # general python
 RUN sudo pip install picamera requests sh 
