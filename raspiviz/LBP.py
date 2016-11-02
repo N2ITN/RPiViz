@@ -53,4 +53,3 @@ def main(img):
     cv2.imwrite('thresholded_image.jpg', transformed_img)
     return transformed_img
 main(cv2.imread(img)
-
