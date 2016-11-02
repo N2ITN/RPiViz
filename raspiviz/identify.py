@@ -3,7 +3,6 @@
 import cv2
 import dlib
 import numpy as np
-import LBP
 
 
 # TODO: split into 2 functions, get_face, extract_data
@@ -45,6 +44,6 @@ def crop2face(pic, predictor):
         #wide = cv2.Canny(blurred, 10, 100)
         # Detect face landmarks with dlib rectangle, dlib shape predictor
         clahe_crop = clahe_image[y1:y2, x1:x2]
-        LBP_img = LBP.main(clahe_crop)
-        shape = predictor(LBP_img, detections)
+        #LBP_img = LBP.main(clahe_crop)
+        shape = predictor(clahe_crop, detections)
         return shape, clahe_image
