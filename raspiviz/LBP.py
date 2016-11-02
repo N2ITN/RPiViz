@@ -49,6 +49,5 @@ def main(img):
             transformed_img.itemset((x,y), res)
 
 
-
     cv2.imwrite('thresholded_image.jpg', transformed_img)
     return transformed_img
