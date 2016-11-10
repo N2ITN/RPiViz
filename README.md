@@ -47,9 +47,9 @@ Facial landmark identification, keypoint anaylsis, time weighted feedback, updat
 
 Embedded insights using FaceNet in TensorFlow, trained on 37,000 images.
 
-Secure interactive user analytics using D3.js
+Live interactive user analytics using D3.js, supported by Kakfa and MemSQL and Spark
 
-Attractive, unobtrusive real time visualization with RBG desktop light.
+Attractive, unobtrusive real time form factor with live RGB feedback.
 
 
 ## Deployment
