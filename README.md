@@ -1,25 +1,30 @@
 
 # IoT Mood Insights using Computer Vision and Deep Learning
 
-* Seattle Interactive 2016 T-Mobile Hackathon finalist.
-* Real time drowsiness detection and face metrics using embedded computer vision. 
-* Mood recognition in real time with embedded neural networks in TensorFlow (WIP - to be finished by 11/15)
-* Scalable deployment through Resin.io and Docker 
-* Scalable and fault tolerant backend using Kafka and MemSQL
-* Interactive analytics service using PySpark backend with D3.js dashboards (in development)
-* Robust IoT security practices leveraging distributed Cyprography via Apache Milagro 
+* Seattle Interactive 2016 T-Mobile Hackathon
+ * Finalist for real time drowsiness detection using embedded computer vision. 
 
+* Active development
+ * Mood recognition in real time with embedded neural networks in TensorFlow (ETA 11/15/16)
+ * Scalable deployment through Resin.io and Docker (finished)
+ * Scalable and fault tolerant backend using Kafka and MemSQL (ETA 11/20/16)
+ * Interactive analytics service using PySpark backend with D3.js dashboards (ETA 12/1/16)
+ * Robust IoT security practices leveraging distributed Cyprography via Apache Milagro (ETA 12/12016)
 
 ## Design principles
- 
-  * Inexpensive product
-  * Robust fault tolerance - recover from network or power loss, system crash
+
+### Engineering
+  
+  * Agile development - patches and updates pushed with Resin.io
+  * Reslient to network or power loss, system crash
   * Scalability, mass deployable from inception
   * Leverage distributed in-memory storage and pub-sub 
   * Embedded computer vision and neural nets - working in 'the fog' as opposed to the cloud
-  * Flexible IoT platform for emotion recognition applications
-  * The 'anti-app': an unobstrustive 'enchanted' object' that facilitates a utility or experience. User can engage as much or little as they like and still have a positive experience
-  * Anticipatory embrace of [emerging trends] (http://na2.www.gartner.com/imagesrv/newsroom/images/emerging-tech-hc-2016.png;wa59f7b006c484099e) in tech: affective computing, IoT, distributed computing, quantified self, deep neural networks.
+### Philosophical
+ * Flexible IoT platform for general-purpose computer vision and emotiove computing applications
+ * Simple UX, supporting various user engagement styles
+ * The 'anti-app': an unobstrustive 'enchanted' object' that facilitates a utility or experience. 
+ * Anticipatory embrace of [emerging trends in tech] (http://na2.www.gartner.com/imagesrv/newsroom/images/emerging-tech-hc-2016.png;wa59f7b006c484099e): affective computing, IoT, distributed computing, quantified self, deep neural networks.
 
 
 
@@ -31,12 +36,13 @@ IR cam capture, face detection, image cropping
 
 ![Alt text](/images/snapcrop.jpg?raw=true "So tired..") 
 
-### Step 2Facial landmark identification, keypoint anaylsis, time weighted feedback, update frequency ~3 seconds
+### Step 2
+Facial landmark identification, keypoint anaylsis, time weighted feedback, update frequency ~3 seconds
 
 ![Alt text](/images/alert.jpg?raw=true "alert!") 
 
 
-## Real time mood insights (work in progress)
+## Real time mood insights (in progress)
 
 Embedded insights using FaceNet in TensorFlow, trained on 37,000 images.
 
