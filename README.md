@@ -20,6 +20,7 @@
   * Scalability, mass deployable from inception
   * Leverage distributed in-memory storage and pub-sub 
   * Embedded computer vision and neural nets - working in 'the fog' as opposed to the cloud
+  
 ### Philosophical
  * Flexible IoT platform for general-purpose computer vision and emotiove computing applications
  * Simple UX, supporting various user engagement styles
