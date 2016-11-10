@@ -5,10 +5,12 @@
 * Real time drowsiness detection and face metrics using embedded computer vision. 
 * Mood recognition in real time with embedded neural networks in TensorFlow (WIP - to be finished by 11/15)
 * Scalable deployment through Resin.io and Docker 
-* Scalable and fault tolerant backend using Kafka and HBase
+* Scalable and fault tolerant backend using Kafka and MemSQL
 * Interactive analytics service using PySpark backend with D3.js dashboards (in development)
 * Robust IoT security practices leveraging distributed Cyprography via Apache Milagro 
 
+  * Leverage in-memory storage
+  * Embedded computer vision and neural nets, 'the fog' as opposed to the cloud
 * Additional feature additions on the way.
 
 ## Design principles
@@ -16,8 +18,6 @@
   * Inexpensive
   * Robust fault tolerance - recover from network or power loss, system crash
   * Scalability, mass deployable from inception
-  * Leverage in-memory storage
-  * Embedded computer vision and neural nets, 'the fog' as opposed to the cloud
   * Flexible IoT platform for emotion recognition applications
   * The 'anti-app': an unobstrustive 'enchanted' object' that facilitates a utility or experience. User can engage as much or little as they like and still have a positive experience
   * Anticipatory embrace of [emerging trends] (http://na2.www.gartner.com/imagesrv/newsroom/images/emerging-tech-hc-2016.png;wa59f7b006c484099e) in tech: affective computing, IoT, distributed computing, quantified self, deep neural networks.
