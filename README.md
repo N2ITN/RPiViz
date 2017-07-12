@@ -1,15 +1,10 @@
 
-# IoT Mood Insights using Computer Vision and Deep Learning
+# IoT Drowsiness Detection using Computer Vision 
 
 * Seattle Interactive 2016 T-Mobile Hackathon
  * Finalist for real time drowsiness detection using embedded computer vision. 
+ * Scalable deployment through Resin.io and Docker 
 
-* Active development
- * Mood recognition in real time with embedded neural networks in TensorFlow (ETA 11/15/16)
- * Scalable deployment through Resin.io and Docker (finished)
- * Scalable and fault tolerant backend using Kafka and MemSQL (ETA 11/20/16)
- * Interactive analytics service using PySpark backend with D3.js dashboards (ETA 12/1/16)
- * Robust IoT security practices leveraging distributed Cyprography via Apache Milagro (ETA 12/12016)
 
 ## Design principles
 
@@ -71,17 +66,12 @@ Real time analytical data stream on SSH: timestamped drowsiness metrics & interp
 
 
 
-## Critical Path
-
-### MVP
+#### TODO
   * Deploy TensorFlow model on device (model trained, deployment in progress)
   * Scalable and distributed pub-sub server using Kakfa (in progress) and in-memory datastore (MemSQL) and analytics (Spark)
   * Frontend user interactive visual analytics web client (in progress) 
   * Native device feedback on local desktop light
-  
-### Longer term
-  * beyond LAN: 3G + GPS connectivity with particle.io
-  * Security with Apache Milagro distributed cytography
+
 
 
 ## License 
