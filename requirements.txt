@@ -1,5 +1,5 @@
 picamera==1.12
-requests==2.4.3
+requests==2.20.0
 sh
 
 
